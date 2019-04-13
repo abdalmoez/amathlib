@@ -70,21 +70,21 @@ namespace AMathLib.Vectors
             this.z = v2.x;
             this.w = v2.y;
         }
-        public Vec4(Vec2 v1, double z, double w)
+        public Vec4(Vec2 v1, double z = 0, double w = 0)
         {
             this.x = v1.x;
             this.y = v1.y;
             this.z = z;
             this.w = w;
         }
-        public Vec4(Vec3f v1, double w)
+        public Vec4(Vec3f v1, double w = 0)
         {
             this.x = v1.x;
             this.y = v1.y;
             this.z = v1.z;
             this.w = w;
         }
-        public Vec4(Vec3 v1, double w)
+        public Vec4(Vec3 v1, double w = 0)
         {
             this.x = v1.x;
             this.y = v1.y;

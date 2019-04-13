@@ -35,14 +35,14 @@ namespace AMathLib.Vectors
             this.z = v2.x;
             this.w = v2.y;
         }
-        public Vec4f(Vec2f v1, float z,float w)
+        public Vec4f(Vec2f v1, float z = 0, float w = 0)
         {
             this.x = v1.x;
             this.y = v1.y;
             this.z = z;
             this.w = w;
         }
-        public Vec4f(Vec3f v1, float w)
+        public Vec4f(Vec3f v1, float w = 0)
         {
             this.x = v1.x;
             this.y = v1.y;

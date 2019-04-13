@@ -7,6 +7,7 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 using System;
+
 namespace AMathLib.Vectors
 {
     public class Vec2f

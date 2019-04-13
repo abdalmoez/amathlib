@@ -16,6 +16,7 @@ This project was build using Visual Studio 2017 and .Net Framework 3.5 Client Pr
 # Matrix
   - Matrix of size 4 are available with operations matrix and vector multiplication 
   - You can acces matrix using square bracket **mat[int row, int col]** or **mat[int col]**
+  - **ApplyFunction(Func<T, T> f)** allow you to apply a function to each component of the matrix where T is the type of the component(double, float, ...)
   - To Calculate determinant use **Det()** function
   - To create a matrix identity use **Mat4.Identity()**
   - To create new vector containing the values of a matrix row / column use **GetRow(i)** / **GetCol(i)**;
@@ -27,7 +28,6 @@ This project was build using Visual Studio 2017 and .Net Framework 3.5 Client Pr
     * **Inverse()**
 
 # TODO
-  - Create Matrix size 2 and 3 with Types Double and float
   - Create Matrix and vectors of type int, uint, short, ushort, byte, ubyte and bool
 
 

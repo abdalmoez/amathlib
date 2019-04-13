@@ -51,6 +51,13 @@ namespace AMathLib.Matrix
             for (int i = 0; i < Size; i++)
                 cols[i] = new Vec3f(m.cols[i]);
         }
+        public Mat3f(Mat2f m, Vec3f v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec3f(m[i]);
+
+            cols[Size - 1] = new Vec3f(v);
+        }
         public Mat3f(Vec3f c0, Vec3f c1, Vec3f c2)
         {
             cols[0] = new Vec3f(c0);
@@ -187,6 +194,15 @@ namespace AMathLib.Matrix
                     - this[0, 1] * (this[1, 0] * this[2, 2] - this[1, 2] * this[2, 0])
                     + this[0, 2] * (this[1, 0] * this[2, 1] - this[1, 1] * this[2, 0]);
         }
-
+        /// <summary>
+        /// Apply a function to each element of the matrix
+        /// </summary>
+        /// <param name="f">function</param>
+        public void ApplyFunction(Func<float, float> f)
+        {
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    this[i, j] = f(this[i, j]);
+        }
     }
 }

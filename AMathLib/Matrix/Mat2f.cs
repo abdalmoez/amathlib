@@ -174,6 +174,15 @@ namespace AMathLib.Matrix
             return    this[0, 0] * this[1, 1]
                     - this[0, 1] * this[1, 0];
         }
-
+        /// <summary>
+        /// Apply a function to each element of the matrix
+        /// </summary>
+        /// <param name="f">function</param>
+        public void ApplyFunction(Func<float, float> f)
+        {
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    this[i, j] = f(this[i, j]);
+        }
     }
 }

@@ -51,6 +51,39 @@ namespace AMathLib.Matrix
             for (int i = 0; i < Size; i++)
                 cols[i] = new Vec3(m.cols[i]);
         }
+        public Mat3(Mat3f m)
+        {
+            for (int i = 0; i < Size; i++)
+                cols[i] = new Vec3(m[i]);
+        }
+        public Mat3(Mat2 m, Vec3 v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec3(m[i]);
+
+            cols[Size - 1] = new Vec3(v);
+        }
+        public Mat3(Mat2 m, Vec3f v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec3(m[i]);
+
+            cols[Size - 1] = new Vec3(v);
+        }
+        public Mat3(Mat2f m, Vec3 v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec3(m[i]);
+
+            cols[Size - 1] = new Vec3(v);
+        }
+        public Mat3(Mat2f m, Vec3f v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec3(m[i]);
+
+            cols[Size - 1] = new Vec3(v);
+        }
         public Mat3(Vec3 c0, Vec3 c1, Vec3 c2)
         {
             cols[0] = new Vec3(c0);
@@ -62,6 +95,7 @@ namespace AMathLib.Matrix
             for(int i=0;i< Size; i++)
                 cols[i] = new Vec3(columns[i]);
         }
+
 
         public static Mat3 Identity()
         {
@@ -187,6 +221,15 @@ namespace AMathLib.Matrix
                     - this[0, 1] * (this[1, 0] * this[2, 2] - this[1, 2] * this[2, 0])
                     + this[0, 2] * (this[1, 0] * this[2, 1] - this[1, 1] * this[2, 0]);
         }
-
+        /// <summary>
+        /// Apply a function to each element of the matrix
+        /// </summary>
+        /// <param name="f">function</param>
+        public void ApplyFunction(Func<double, double> f)
+        {
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    this[i, j] = f(this[i, j]);
+        }
     }
 }

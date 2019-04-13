@@ -6,7 +6,6 @@
 //     the terms of the GNU General Public License version 2 only.           //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
-
 using AMathLib.Vectors;
 using System;
 
@@ -51,6 +50,23 @@ namespace AMathLib.Matrix
         {
             for (int i = 0; i < Size; i++)
                 cols[i] = new Vec4f(m.cols[i]);
+        }
+        public Mat4f(Mat3f m, Vec4f v)
+        {
+            for (int i = 0; i < Size - 1; i++)
+                cols[i] = new Vec4f(m[i]);
+
+            cols[Size - 1] = new Vec4f(v);
+        }
+        public Mat4f(Mat2f topLeft, Mat2f topRight, Mat2f bottomLeft, Mat2f bottomRight)
+        {
+            for (int i = 0; i < Size; i++)
+                cols[i] = new Vec4f();
+
+            this[0, 0] = topLeft[0, 0]; this[0, 1] = topLeft[0, 1]; this[0, 2] = topRight[0, 0]; this[0, 3] = topRight[0, 1];
+            this[1, 0] = topLeft[1, 0]; this[1, 1] = topLeft[1, 1]; this[1, 2] = topRight[1, 0]; this[1, 3] = topRight[1, 1];
+            this[2, 0] = bottomLeft[0, 0]; this[2, 1] = bottomLeft[0, 1]; this[2, 2] = bottomRight[0, 0]; this[2, 3] = bottomRight[0, 1];
+            this[3, 0] = bottomLeft[1, 0]; this[3, 1] = bottomLeft[1, 1]; this[3, 2] = bottomRight[1, 0]; this[3, 3] = bottomRight[1, 1];
         }
         public Mat4f(Vec4f c0, Vec4f c1, Vec4f c2, Vec4f c3)
         {
@@ -285,6 +301,15 @@ namespace AMathLib.Matrix
                     + this[0, 2] * (this[1, 0] * A1323 - this[1, 1] * A0323 + this[1, 3] * A0123)
                     - this[0, 3] * (this[1, 0] * A1223 - this[1, 1] * A0223 + this[1, 2] * A0123);
         }
-
+        /// <summary>
+        /// Apply a function to each element of the matrix
+        /// </summary>
+        /// <param name="f">function</param>
+        public void ApplyFunction(Func<float, float> f)
+        {
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    this[i, j] = f(this[i, j]);
+        }
     }
 }

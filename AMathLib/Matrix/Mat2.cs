@@ -51,6 +51,11 @@ namespace AMathLib.Matrix
             for (int i = 0; i < Size; i++)
                 cols[i] = new Vec2(m.cols[i]);
         }
+        public Mat2(Mat2f m)
+        {
+            for (int i = 0; i < Size; i++)
+                cols[i] = new Vec2(m[i]);
+        }
         public Mat2(Vec2 c0, Vec2 c1)
         {
             cols[0] = new Vec2(c0);
@@ -174,6 +179,15 @@ namespace AMathLib.Matrix
             return    this[0, 0] * this[1, 1]
                     - this[0, 1] * this[1, 0];
         }
-
+        /// <summary>
+        /// Apply a function to each element of the matrix
+        /// </summary>
+        /// <param name="f">function</param>
+        public void ApplyFunction(Func<double, double> f)
+        {
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    this[i, j] = f(this[i, j]);
+        }
     }
 }
