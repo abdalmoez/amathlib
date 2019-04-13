@@ -19,7 +19,7 @@ namespace AMathLib.Vectors
 
         public double GetNorm() { return System.Math.Sqrt(x * x + y * y + z * z + w * w); }
         public Vec4f GetNormalizedVector() { return this / (float)GetNorm(); }
-        public void Normalize() { double n = GetNorm(); x /= (float)GetNorm(); y /= (float)GetNorm(); z /= (float)GetNorm(); w /= (float)GetNorm(); }
+        public void Normalize() { float n = (float)GetNorm(); x /= n; y /= n; z /= n; w /= n; }
 
         public Vec4f(float x = 0, float y = 0, float z = 0, float w = 0)
         {
@@ -149,17 +149,16 @@ namespace AMathLib.Vectors
         {
             return new Vec4f(a.x * k, a.y * k, a.z * k, a.w * k);
         }
+        //simple product
+        public static Vec4f operator *(Vec4f a, Vec4f b)
+        {
+            return new Vec4f(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+        }
 
         // overload operator /
         public static Vec4f operator /(Vec4f a, float k)
         {
             return new Vec4f(a.x / k, a.y / k, a.z / k, a.w / k);
-        }
-
-        //simple product
-        public static Vec4f operator *(Vec4f a, Vec4f b)
-        {
-            return new Vec4f(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
         }
 
         // overload implicit cast to vec4

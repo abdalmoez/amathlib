@@ -1,0 +1,6 @@
+C:\Users\Zi\source\repos\amathlib\AMathLib\obj\Debug\AMathLib.csprojAssemblyReference.cache
+C:\Users\Zi\source\repos\amathlib\AMathLib\obj\Debug\AMathLib.csproj.CoreCompileInputs.cache
+C:\Users\Zi\source\repos\amathlib\AMathLib\bin\Debug\AMathLib.dll
+C:\Users\Zi\source\repos\amathlib\AMathLib\bin\Debug\AMathLib.pdb
+C:\Users\Zi\source\repos\amathlib\AMathLib\obj\Debug\AMathLib.dll
+C:\Users\Zi\source\repos\amathlib\AMathLib\obj\Debug\AMathLib.pdb

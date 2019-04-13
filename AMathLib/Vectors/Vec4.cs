@@ -18,6 +18,8 @@ namespace AMathLib.Vectors
         public double w;
         
         public double GetNorm() { return System.Math.Sqrt(x * x + y * y + z * z + w * w); }
+        public Vec4 GetNormalizedVector() { return this / GetNorm(); }
+        public void Normalize() { double n = GetNorm(); x /= n; y /= n; z /= n; w /= n; }
 
         public Vec4(double x = 0, double y = 0, double z = 0, double w = 0)
         {
@@ -209,6 +211,13 @@ namespace AMathLib.Vectors
         {
             return new Vec4(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
         }
+
+        // overload operator /
+        public static Vec4 operator /(Vec4 a, double k)
+        {
+            return new Vec4(a.x / k, a.y / k, a.z / k, a.w / k);
+        }
+
         // overload operator neg
         public static Vec4 operator -(Vec4 v)
         {

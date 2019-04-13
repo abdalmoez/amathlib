@@ -15,6 +15,8 @@ namespace AMathLib.Vectors
         public float y;
 
         public double GetNorm() { return System.Math.Sqrt(x * x + y * y); }
+        public Vec2f CreateNormalizedVector() { return this / (float)GetNorm(); }
+        public void Normalize() { float n = (float)GetNorm(); x /= n; y /= n; }
 
         public Vec2f(float x = 0, float y = 0)
         {
@@ -120,6 +122,12 @@ namespace AMathLib.Vectors
         public static Vec2f operator *(Vec2f a, Vec2f b)
         {
             return new Vec2f(a.x * b.x, a.y * b.y);
+        }
+
+        // overload operator /
+        public static Vec2f operator /(Vec2f a, float k)
+        {
+            return new Vec2f(a.x / k, a.y / k);
         }
 
         // overload implicit cast to Vec2

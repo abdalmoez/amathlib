@@ -35,6 +35,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matrix\Mat2f.cs" />
+    <Compile Include="Matrix\Mat2.cs" />
+    <Compile Include="Matrix\Mat3f.cs" />
+    <Compile Include="Matrix\Mat3.cs" />
     <Compile Include="Matrix\Mat4.cs" />
     <Compile Include="Matrix\Mat4f.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
