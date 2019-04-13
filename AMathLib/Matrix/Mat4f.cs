@@ -91,6 +91,16 @@ namespace AMathLib.Matrix
             return m;
         }
 
+        public float[] ToArray()
+        {
+            float[] r = new float[Size * Size];
+
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    r[i * Size + i] = this[i, j];
+            return r;
+        }
+
         public void Set(Mat4f m)
         {
             for (int i = 0; i < Size; i++)

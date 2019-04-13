@@ -263,6 +263,16 @@ namespace AMathLib.Matrix
             return m;
         }
 
+        public double[] ToArray()
+        {
+            double[] r = new double[Size * Size];
+
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    r[i * Size + i] = this[i, j];
+            return r;
+        }
+
         public void Set(Mat4 m)
         {
             for (int i = 0; i < Size; i++)

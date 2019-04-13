@@ -20,6 +20,7 @@ This project was build using Visual Studio 2017 and .Net Framework 3.5 Client Pr
   - To Calculate determinant use **Det()** function
   - To create a matrix identity use **Mat4.Identity()**
   - To create new vector containing the values of a matrix row / column use **GetRow(i)** / **GetCol(i)**;
+  - **ToArray()** convert your current Matrix to array
   - Matrix Manipulation
     * **Translate(Vec3 v)**
     * **Scale(Vec3 v)**
