@@ -81,7 +81,7 @@ namespace AMathLib.Matrix
 
             for (int i = 0; i < Size; i++)
                 for (int j = 0; j < Size; j++)
-                    r[i * Size + i] = this[i, j];
+                    r[i + Size * j] = this[i, j];
             return r;
         }
 
